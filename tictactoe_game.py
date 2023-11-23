@@ -1,24 +1,21 @@
-import pygame,sys
+import pygame,sys, random
 from pygame.locals import *
-import random
-
-
 
 pygame.init()
-
 
 screen_width = 300
 screen_height = 300
 
-screen=pygame.display.set_mode((screen_width,screen_height))
+screen = pygame.display.set_mode((screen_width,screen_height))
 pygame.display.set_caption("tic-tac-toe")
+
 #define variables
-line_width=6
-markers=[]
-clicked=False
-pos=[]
-player=1
-winner=0
+line_width = 6
+markers = []
+clicked = False
+pos = []
+player = 1
+winner = 0
 game_over = False
 
 #define colors
@@ -30,14 +27,14 @@ font = pygame.font.SysFont(None, 40)
 again_rect = Rect(screen_width // 2 - 80, screen_height //2, 160, 50)
 
 def draw_grid():
-    bg=(255,255,255)
-    grid= (50,50,50)
-    screen.fill(bg)
+    screen.fill('white')
+
     for x in range(1,3):
-        pygame.draw.line(screen, grid, (0, x*100), (screen_width, x*100),line_width)
-        pygame.draw.line(screen, grid, (x*100, 0), (x*100,screen_height),line_width)
+        pygame.draw.line(screen, 'black', (0, x*100), (screen_width, x*100),line_width)
+        pygame.draw.line(screen, 'black', (x*100, 0), (x*100,screen_height),line_width)
+
 for x in range(3):
-    row= [0]*3
+    row = [0]*3
     markers.append(row)
 
 def draw_markers():
@@ -110,15 +107,16 @@ def draw_winner(winner):
         pygame.draw.rect(screen, green, again_rect)
         screen.blit(again_img, (screen_width // 2 - 80, screen_height // 2 +10))
 
-run = True
-while run:
+while True:
     
     draw_grid()
     draw_markers()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run=False
+            pygame.quit()
+            sys.exit()
+
         if game_over == 0:
             if event.type == pygame.MOUSEBUTTONDOWN and clicked == False:
                 clicked=True
@@ -150,5 +148,4 @@ while run:
                     row= [0]*3
                     markers.append(row)
     pygame.display.update()
-pygame.quit()
 

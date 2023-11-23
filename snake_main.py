@@ -1,4 +1,4 @@
-from snake_settings import *
+from snake_assets.snake_settings import *
 import time
 import random
 
