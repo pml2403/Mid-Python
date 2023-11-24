@@ -33,7 +33,7 @@ score_line.goto(0, 260)
 score_line.write('Score: 0  High score: 0', align = 'center', font = ('Arial', 24, 'normal'))
 
 def play_sound():
-    winsound.PlaySound("snake-hissing-6092.mp3", winsound.SND_ASYNC)
+    winsound.PlaySound("snake_assets/snake-hissing-6092.mp3", winsound.SND_ASYNC)
 
 class Snake:
     def __init__(self, snake):
