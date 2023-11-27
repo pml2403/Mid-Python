@@ -54,18 +54,18 @@ def draw_text(text, font, text_col, x, y):
 	text_rect = text.get_rect(center = (x, y))
 	screen.blit(text, text_rect)
 
-def reset_game():
-	pipe_group.empty()
-	flappy.rect.x = 100
-	flappy.rect.y = screen_height // 2
-	score = 0
-	return score
-
 #function to check high score
 def update_score(score, high_score):
 	if score > high_score:
 		high_score = score
 	return high_score	
+
+def reset_game():
+	pipe_group.empty()
+	flappy.rect.x = 100
+	flappy.rect.y = screen_height // 2
+	score = 0
+	return score	
 
 pipe_group = pygame.sprite.Group()
 bird_group = pygame.sprite.Group()

@@ -6,9 +6,14 @@ class Bird(pygame.sprite.Sprite):
 			self.images = []
 			self.index = 0
 			self.counter = 0 #control the speed
-			for num in range (1, 4):
-				img = pygame.image.load(f"flappybird_images/bird{num}.png").convert_alpha()
-				self.images.append(img)
+
+			bird1 = pygame.image.load("flappybird_images/bird1.png").convert_alpha()
+			bird2 = pygame.image.load("flappybird_images/bird2.png").convert_alpha()
+			bird3 = pygame.image.load("flappybird_images/bird3.png").convert_alpha()
+			self.images.append(bird1)
+			self.images.append(bird2)
+			self.images.append(bird3)
+
 			self.image = self.images[self.index]
 			self.rect = self.image.get_rect()
 			self.rect.center = [x, y]
@@ -22,7 +27,7 @@ class Bird(pygame.sprite.Sprite):
 				if self.vel > 8:
 					self.vel = 8
 				if self.rect.bottom < 550:
-					self.rect.y += int(self.vel)
+					self.rect.y += self.vel
 
 			if game_over == False:
 				#jump
@@ -42,7 +47,6 @@ class Bird(pygame.sprite.Sprite):
 					self.index += 1
 					if self.index >= len(self.images):
 						self.index = 0
-					self.image = self.images[self.index]
 
 				#rotate the bird
 				self.image = pygame.transform.rotate(self.images[self.index], self.vel * -2)
