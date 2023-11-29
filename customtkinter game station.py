@@ -45,6 +45,10 @@ def turn_to_game_page():
 
     if button_x > -1.2:
         window.after(10, turn_to_game_page)
+    else:
+        move_game_in()
+
+
 
 button_x = 0.5
 
@@ -99,5 +103,7 @@ login_button = CTkButton(login_frame,
                          font = ('Roboto', 15, 'bold'),
                          command = check_password)
 login_button.place(relx = button_x, rely = 0.7, anchor = CENTER)
+
+game_frame = CTkFrame(window, relx = 0.5, rely = 0.5, relwidth = 0.8, relheight = 0.9)
 
 window.mainloop()
