@@ -293,6 +293,8 @@ sign_up_button.place(relx = button_x, rely = 0.91, anchor = CENTER)
 game_frame = CTkFrame(window, fg_color = ('#dadae6', '#3b3b3d'), border_width = 0)
 game_frame.place(relx = game_frame_x, rely = 0.65, relwidth = 0.55, relheight = 0.7)
 
+
+
 flappy_button = CTkButton(game_frame, 
                           text = 'Flappy Bird', 
                           font = ('Roboto', 20, 'bold'),
