@@ -2,6 +2,7 @@ import pygame, sys
 from pygame.locals import *
 
 pygame.init()
+clock = pygame.time.Clock()
 
 screen_width = 300
 screen_height = 300
@@ -144,5 +145,7 @@ while True:
                 for x in range(3):
                     row= [0]*3
                     markers.append(row)
+
     pygame.display.update()
+    clock.tick(60)
 
