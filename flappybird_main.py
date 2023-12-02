@@ -75,7 +75,8 @@ bird_group.add(flappy)
 #create restart button instance
 button = Button(screen_width // 2 - 60, screen_height // 2, button, screen)
 
-while True:
+run = True
+while run:
 	clock.tick(60)
 
 	#draw background, bird and pipe
@@ -145,12 +146,12 @@ while True:
 			score = reset_game()
 			collision_sound_played = False
 
+	pygame.display.update()
+	
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			pygame.quit()
-			sys.exit()
+			run = False
 		if event.type == pygame.MOUSEBUTTONDOWN and flying == False and game_over == False:
 			stop_blit_begin = True
 			flying = True
-
-	pygame.display.update()

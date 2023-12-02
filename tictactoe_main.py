@@ -104,14 +104,15 @@ def draw_winner(winner):
         pygame.draw.rect(screen, 'khaki1', again_rect)
         screen.blit(again_img, (screen_width // 2 - 80, screen_height // 2 +10))
 
+run = True
 while True:
     draw_grid()
     draw_markers()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            run = False
             pygame.quit()
-            sys.exit()
 
         if game_over == 0:
             if event.type == pygame.MOUSEBUTTONDOWN and clicked == False:
