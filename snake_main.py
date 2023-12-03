@@ -8,6 +8,7 @@ while True:
     #Check game over
     #Crash into wall
     if my_snake.xcor() > GAME_WIDTH / 2 - SPACE_SIZE or my_snake.xcor() < -(GAME_WIDTH / 2 - SPACE_SIZE) or my_snake.ycor() > GAME_HEIGHT / 2 - SPACE_SIZE or my_snake.ycor() < -(GAME_HEIGHT / 2 - SPACE_SIZE):
+        game_over_sound()
         time.sleep(1)
         my_snake.goto(0,0)
         my_snake.direction = "stop"
@@ -22,6 +23,7 @@ while True:
     #Hit its tail
     for block in blocks:
         if block.distance(my_snake) < 20:
+            game_over_sound()
             time.sleep(1)
             my_snake.goto(0,0)
             my_snake.direction = "stop"
