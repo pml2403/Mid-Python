@@ -145,8 +145,6 @@ while run:
 			game_over = False
 			score = reset_game()
 			collision_sound_played = False
-
-	pygame.display.update()
 	
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
@@ -155,3 +153,5 @@ while run:
 		if event.type == pygame.MOUSEBUTTONDOWN and flying == False and game_over == False:
 			stop_blit_begin = True
 			flying = True
+
+	pygame.display.update()

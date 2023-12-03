@@ -13,7 +13,6 @@ while run:
     PLAY.blit(BACKGROUND, (0,0))
     title = title_font.render('PLAY', 1, (255,255,255))
     PLAY.blit(title, (WIDTH/2 - title.get_width()/2, HEIGHT/2 - title.get_height()/2))
-    pygame.display.update()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -21,3 +20,5 @@ while run:
             pygame.quit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             game.game()
+    
+    pygame.display.update()
