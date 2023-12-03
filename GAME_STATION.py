@@ -27,7 +27,6 @@ background = CTkLabel(window,
                        image = background_image_tk)
 background.place(relwidth = 1, relheight = 1)
 
-
 title_image = Image.open('game_station_assets/game_station_text.png').resize((500, 150))
 title_image_tk = ImageTk.PhotoImage(title_image)
 title = CTkButton(window, 
