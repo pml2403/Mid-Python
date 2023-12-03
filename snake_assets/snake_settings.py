@@ -1,5 +1,7 @@
 import turtle
-import winsound
+import pygame
+
+pygame.init()
 
 GAME_WIDTH = 600
 GAME_HEIGHT = 600
@@ -33,7 +35,12 @@ score_line.goto(0, 260)
 score_line.write('Score: 0  High score: 0', align = 'center', font = ('Arial', 24, 'normal'))
 
 def play_sound():
-    winsound.PlaySound("snake_assets/snake-hissing-6092.mp3", winsound.SND_ASYNC)
+    eat_sound = pygame.mixer.Sound("snake_assets/274BNQC-video-game-bite.mp3")
+    eat_sound.play()
+
+def game_over_sound():
+    end_sound = pygame.mixer.Sound("snake_assets/2G7CF5V-gamers-fail-game.mp3")
+    end_sound.play()
 
 class Snake:
     def __init__(self, snake):
