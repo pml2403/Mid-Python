@@ -35,7 +35,7 @@ score_line.goto(0, 260)
 score_line.write('Score: 0  High score: 0', align = 'center', font = ('Arial', 24, 'normal'))
 
 def play_sound():
-    eat_sound = pygame.mixer.Sound("snake_assets/274BNQC-video-game-bite.mp3")
+    eat_sound = pygame.mixer.Sound("snake_assets\Eat_sound.mp3")
     eat_sound.play()
 
 def game_over_sound():
