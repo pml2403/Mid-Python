@@ -17,8 +17,8 @@ title_image = Image.open('game_station_assets/game_station_text.png').resize((50
 title_image_tk = ImageTk.PhotoImage(title_image)
 title = CTkButton(window, 
                 image = title_image_tk,
-                fg_color = 'transparent',
-                bg_color = 'transparent',
+                fg_color = '#1A0950',
+                bg_color = '#1A0950',
                 text = '',
                 border_color = 'blue',
                 border_width = 2,
@@ -26,7 +26,7 @@ title = CTkButton(window,
                 state = DISABLED)
 title.place(relx = 0.5, rely = 0.17,anchor='center')
 
-game_frame = CTkFrame(window, fg_color = '#3b3b3d', border_width = 0)
+game_frame = CTkFrame(window, fg_color = '#401E81', border_width = 0)
 game_frame.place(relx = 0.5, rely = 0.65, relwidth = 0.8, relheight = 0.5, anchor = CENTER)
 
 def import_flappy():

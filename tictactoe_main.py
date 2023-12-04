@@ -17,6 +17,7 @@ pos = []
 player = 1
 winner = 0
 game_over = False
+sound_played = False
 
 font = pygame.font.SysFont(None, 40)
 again_rect = Rect(screen_width // 2 - 80, screen_height // 2, 160, 50)
@@ -45,6 +46,18 @@ def draw_markers():
             y_pos += 1
         x_pos += 1
 
+def play_sound():
+    sound = pygame.mixer.Sound('tictactoe_assets/play_sound.mp3')
+    sound.play()
+
+def win_sound():
+    win_sound = pygame.mixer.Sound('tictactoe_assets/win_sound.mp3')
+    win_sound.play()
+
+def tie_sound():
+    tie_sound = pygame.mixer.Sound('tictactoe_assets/tie_sound.mp3')
+    tie_sound.play()
+
 def check_winner():
     global winner
     global game_over
@@ -71,14 +84,17 @@ def check_winner():
     if markers[0][0] == markers[1][1] == markers[2][2] == 1 or markers[0][2] == markers[1][1] == markers[2][0] == 1:
         winner = 1
         game_over = True
+        win_sound()
         return game_over
     if markers[0][0] == markers[1][1] == markers[2][2] == -1 or markers[0][2] == markers[1][1] == markers[2][0] == -1:
         winner = 2
         game_over = True
+        win_sound()
         return game_over
     #check tie
     if markers[0][1] != 0 and markers[0][2] != 0 and markers[0][0] != 0 and markers[1][1] != 0 and markers[1][2] != 0 and markers[1][0] != 0 and markers[2][1] != 0 and markers[2][2] != 0 and markers[2][0] != 0  :
         game_over = True
+        tie_sound()
         return game_over
 
 def draw_winner(winner):
@@ -125,6 +141,7 @@ while True:
                 if markers[cell_x // 100][cell_y // 100] == 0:
                     markers[cell_x // 100][cell_y // 100] = player
                     player *= -1
+                    play_sound()
                     check_winner()
 
     if game_over == True:
@@ -147,4 +164,3 @@ while True:
                     markers.append(row)
 
     pygame.display.update()
-
