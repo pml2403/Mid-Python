@@ -1,5 +1,4 @@
 import pygame
-import sys
 import random
 from flappybird_modules.flappybird_bird import Bird
 from flappybird_modules.flappybird_pipe import Pipe
