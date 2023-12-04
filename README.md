@@ -63,6 +63,20 @@ The original engine also has a lot of other features not yet enabled (but will b
 - Can play with AI
 
 ## References
+GUI (Tkinter and Customtkinter):
+- https://youtu.be/TuLxsvK4svQ?si=rYEJRJdDpyMEVf7f
+- https://youtu.be/MvzK9Oguxcg?si=m89d8miTu5wN1bxD
+- https://youtu.be/Miydkti_QVE?si=Wps0YwQ6uYQv367K
+
+Pygame tutorials: 
+- https://youtu.be/AY9MnQ4x3zk?si=q7apQYcZJE5UrFUe
+- https://youtu.be/FfWpgLFMI7w?si=k6AJmbJI5MRdd-TC
+
+Flappy Bird:
+- https://youtu.be/mFbdfXWmLU8?si=EUPJAQG1JwlRNVf4
+- https://youtu.be/GiUGVOqqCKg?si=9HDi8OEM8pcGTmxE
+
+Snake: https://www.youtube.com/watch?v=bfRwxS5d0SI&t=489s
 
 
 
