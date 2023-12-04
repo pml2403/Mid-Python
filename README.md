@@ -71,6 +71,7 @@ GUI (Tkinter and Customtkinter):
 Pygame tutorials: 
 - https://youtu.be/AY9MnQ4x3zk?si=q7apQYcZJE5UrFUe
 - https://youtu.be/FfWpgLFMI7w?si=k6AJmbJI5MRdd-TC
+- https://youtu.be/jO6qQDNa2UY?si=f7LJXto7S4quc0by
 
 Flappy Bird:
 - https://youtu.be/mFbdfXWmLU8?si=EUPJAQG1JwlRNVf4
