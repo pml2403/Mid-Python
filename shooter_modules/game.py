@@ -1,5 +1,6 @@
 import pygame
 from shooter_modules.settings import *
+import random
 
 pygame.init()
 
@@ -53,6 +54,18 @@ def draw_background(green, blue, green_bullets, blue_bullets, green_health, blue
 
     pygame.display.update()
 
+def create_meteor(meteor):
+    x = random.choice([0, 100, 200, 300, 400])
+    y = random.choice([0, 100, 200, 300, 400])
+    speed_x = random.randrange(2, 8)
+    speed_y = random.randrange(-3, 3)
+    temp_list = []
+    temp_list.append(x)
+    temp_list.append(y)
+    temp_list.append(speed_x)
+    temp_list.append(speed_y)
+
+    meteor.append(temp_list)
 
 def green_move(key_pressed, green):
     key_pressed = pygame.key.get_pressed()
@@ -76,7 +89,6 @@ def blue_move(key_pressed, blue):
     if key_pressed[pygame.K_DOWN] and blue.y + VEL + blue.height < HEIGHT - 20: #down
         blue.y += VEL
 
-
 def game():
     green = pygame.Rect(100, 300, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
     blue =  pygame.Rect(700, 300, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
@@ -91,11 +103,11 @@ def game():
 
     clock = pygame.time.Clock() #control the frame rate in 1 second
     run = True
-
     BACKGROUND_SOUND.play()
+
     while run:
         clock.tick(FPS)
-                
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -107,7 +119,7 @@ def game():
                 if space_press_count % 2 == 1:  # Check if space key was pressed an odd number of times
                     if BACKGROUND_SOUND.get_volume():
                         BACKGROUND_SOUND.stop()
-                else:  # Check if space key was pressed an even number of times
+                elif space_press_count % 2 == 0:
                     BACKGROUND_SOUND.play()
 
             if event.type == pygame.KEYDOWN:
@@ -154,17 +166,28 @@ def game():
                 PLAY.blit(BACKGROUND, (0,0))
                 title = title_font.render('PLAY', 1, (255,255,255))
                 PLAY.blit(title, (WIDTH/2 - title.get_width()/2, HEIGHT/2 - title.get_height()/2))
+
                 pygame.display.update()
 
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         run = False
                         pygame.quit()
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                        space_press_count += 1
+
+                        if space_press_count % 2 == 1:  # Check if space key was pressed an odd number of times
+                            if BACKGROUND_SOUND.get_volume():
+                                BACKGROUND_SOUND.stop()
+                        elif space_press_count % 2 == 0:
+                            BACKGROUND_SOUND.play()
+
                     if event.type == pygame.MOUSEBUTTONDOWN:
+                        BACKGROUND_SOUND.stop()
                         game()
 
         handle_bullet(green_bullets, blue_bullets, green, blue)
-        key_pressed = pygame.key.get_pressed()
+        press = pygame.key.get_pressed()
         draw_background(green, blue, green_bullets, blue_bullets, blue_health, green_health)
-        green_move(key_pressed, green)
-        blue_move(key_pressed, blue)
+        green_move(press, green)
+        blue_move(press, blue)

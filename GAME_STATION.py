@@ -4,7 +4,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 
 window = CTk()
-window.geometry('500x600')
+window.geometry('500x650')
 window.title('GAME STATION')
 
 set_appearance_mode('dark')
