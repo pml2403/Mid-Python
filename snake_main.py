@@ -4,7 +4,6 @@ import random
 
 #Main game
 while True:
-    scr.update()
     #Check game over
     #Crash into wall
     if my_snake.xcor() > GAME_WIDTH / 2 - SPACE_SIZE or my_snake.xcor() < -(GAME_WIDTH / 2 - SPACE_SIZE) or my_snake.ycor() > GAME_HEIGHT / 2 - SPACE_SIZE or my_snake.ycor() < -(GAME_HEIGHT / 2 - SPACE_SIZE):
@@ -70,5 +69,4 @@ while True:
     #Run game
     snake_game.move()    
     time.sleep(delay)
-
-scr.mainloop()
+    scr.update()
