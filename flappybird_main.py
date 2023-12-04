@@ -59,6 +59,7 @@ def update_score(score, high_score):
 		high_score = score
 	return high_score	
 
+#function to reset game
 def reset_game():
 	pipe_group.empty()
 	flappy.rect.x = 100
@@ -71,7 +72,7 @@ bird_group = pygame.sprite.Group()
 flappy = Bird(100, screen_height // 2 - 25)
 bird_group.add(flappy)
 
-#create restart button instance
+#create restart button variable
 button = Button(screen_width // 2 - 60, screen_height // 2, button, screen)
 
 run = True

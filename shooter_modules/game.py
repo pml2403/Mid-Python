@@ -54,19 +54,6 @@ def draw_background(green, blue, green_bullets, blue_bullets, green_health, blue
 
     pygame.display.update()
 
-def create_meteor(meteor):
-    x = random.choice([0, 100, 200, 300, 400])
-    y = random.choice([0, 100, 200, 300, 400])
-    speed_x = random.randrange(2, 8)
-    speed_y = random.randrange(-3, 3)
-    temp_list = []
-    temp_list.append(x)
-    temp_list.append(y)
-    temp_list.append(speed_x)
-    temp_list.append(speed_y)
-
-    meteor.append(temp_list)
-
 def green_move(key_pressed, green):
     key_pressed = pygame.key.get_pressed()
     if key_pressed[pygame.K_a] and green.x - VEL > 0: #left and don't move out of screen
@@ -96,8 +83,8 @@ def game():
     green_bullets = []
     blue_bullets = []
 
-    green_health = 100
-    blue_health = 100
+    green_health = 10
+    blue_health = 10
 
     space_press_count = 0
 
@@ -148,17 +135,17 @@ def game():
                     BULLET_FIRE_SOUND.play()
 
             if event.type == BLUE_HIT:
-                green_health -= 10
+                green_health -= 1
                 BULLET_HIT_SOUND.play()
                 
             if event.type == GREEN_HIT:
-                blue_health -= 10
+                blue_health -= 1
                 BULLET_HIT_SOUND.play()
                 
         winner_text = ""
-        if blue_health == 0:
+        if blue_health <= 0:
             winner_text = "PLAYER2 WINS!"
-        if green_health == 0:
+        if green_health <= 0:
             winner_text = "PLAYER1 WINS!"
         if winner_text != "":
             draw_winner(winner_text)
