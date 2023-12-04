@@ -13,6 +13,10 @@ VEL = 5
 SPACESHIP_WIDTH, SPACESHIP_HEIGHT = 80, 50
 BORDER = pygame.Rect(WIDTH//2 - 5, 0, 10, HEIGHT)
 
+METEOR_WIDTH = 800
+METEOR_HEIGHT = 600
+
+
 HEALTH_FONT = pygame.font.Font('shooter_assets\ARCADE.TTF', 50)
 WINNER_FONT = pygame.font.Font('shooter_assets\ARCADECLASSIC.TTF', 150)
 title_font = pygame.font.Font('shooter_assets\ARCADECLASSIC.TTF', 200)
@@ -37,7 +41,6 @@ BLUE_SPACESHIP = pygame.image.load(os.path.join('shooter_assets', 'blue spaceshi
 BLUE_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(BLUE_SPACESHIP, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90)
 
 BACKGROUND = pygame.image.load(os.path.join('shooter_assets', 'background.jpg'))
-meteor_image = pygame.image.load((os.path.join('shooter_assets', 'PixelApple.svg.png')))
 
 green_bullets = []
 blue_bullets = []
