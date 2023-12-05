@@ -77,11 +77,11 @@ Flappy Bird:
 - https://youtu.be/mFbdfXWmLU8?si=EUPJAQG1JwlRNVf4
 - https://youtu.be/GiUGVOqqCKg?si=9HDi8OEM8pcGTmxE
 
-Snake: https://www.youtube.com/watch?v=bfRwxS5d0SI&t=489s
+Snake: 
+- https://www.youtube.com/watch?v=bfRwxS5d0SI&t=489s
 
 
-
-GAME STATION authors:
+## GAME STATION authors:
 - Phạm Mai Linh (leader)
 - Phùng Gia Bảo
 - Lê Phương Thảo
