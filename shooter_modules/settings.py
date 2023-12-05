@@ -21,8 +21,8 @@ BULLET_HIT_SOUND = pygame.mixer.Sound('shooter_assets\Assets_Grenade+1.mp3')
 BULLET_FIRE_SOUND = pygame.mixer.Sound('shooter_assets\Gun+Silencer.mp3')
 BACKGROUND_SOUND = pygame.mixer.Sound('shooter_assets\Wallpaper(chosic.com).mp3')
 
-BULLET_VEL = 1
-MAX_BULLETS = 10
+BULLET_VEL = 7
+MAX_BULLETS = 100
 
 GREEN_HIT = pygame.USEREVENT + 1
 BLUE_HIT = pygame.USEREVENT + 2
