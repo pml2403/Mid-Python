@@ -1,5 +1,6 @@
 import pygame
 from shooter_modules.settings import *
+import random
 
 pygame.init()
 
@@ -8,6 +9,15 @@ def draw_winner(text):
     PLAY.blit(win_text, (WIDTH/2 - win_text.get_width()/2, HEIGHT/2 - win_text.get_height()/2)) #middle of screen
     pygame.display.update()
     pygame.time.delay(1000)
+
+def winner(winner_text, blue_health, green_health):
+    winner_text = ""
+    if blue_health <= 0:
+        winner_text = "PLAYER2 WINS!"
+    if green_health <= 0:
+        winner_text = "PLAYER1 WINS!"
+    if winner_text != "":
+        draw_winner(winner_text)
 
 def handle_bullet(green_bullets, blue_bullets, green, blue):
     for bullets in green_bullets:
@@ -37,16 +47,10 @@ def draw_background(green, blue, green_bullets, blue_bullets, green_health, blue
     PLAY.blit(BLUE_SPACESHIP, (blue.x, blue.y))
 
     for bullet in green_bullets:
-        if pygame.key.get_pressed()[pygame.K_LCTRL]:
-            pygame.draw.rect(PLAY, GREEN, bullet)
-        else:
-            pygame.draw.rect(PLAY, RED, bullet)
-
+        pygame.draw.rect(PLAY, RED, bullet)
+    
     for bullet in blue_bullets:
-        if pygame.key.get_pressed()[pygame.K_RCTRL]:
-            pygame.draw.rect(PLAY, BLUE, bullet)
-        else:
-            pygame.draw.rect(PLAY, YELLOW, bullet)
+        pygame.draw.rect(PLAY, YELLOW, bullet)
 
     pygame.display.update()
 
@@ -129,7 +133,7 @@ def game():
                     # Add the bullet to the blue bullets list
                     blue_bullets.append(bullet)
                     BULLET_FIRE_SOUND.play()
-        
+
             if event.type == BLUE_HIT:
                 green_health -= 5
                 BULLET_HIT_SOUND.play()
@@ -137,17 +141,17 @@ def game():
             if event.type == GREEN_HIT:
                 blue_health -= 5
                 BULLET_HIT_SOUND.play()
-
+                
         winner_text = ""
-        if blue_health == 0:
+        if blue_health <= 0:
             winner_text = "PLAYER2 WINS!"
-        if green_health == 0:
+        if green_health <= 0:
             winner_text = "PLAYER1 WINS!"
         if winner_text != "":
             draw_winner(winner_text)
             while True:
-                title = title_font.render('PLAY', 1, (255,255,255))
                 PLAY.blit(BACKGROUND, (0,0))
+                title = title_font.render('PLAY', 1, (255,255,255))
                 PLAY.blit(title, (WIDTH/2 - title.get_width()/2, HEIGHT/2 - title.get_height()/2))
 
                 pygame.display.update()
@@ -167,14 +171,10 @@ def game():
 
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         BACKGROUND_SOUND.stop()
+                        game()
 
         handle_bullet(green_bullets, blue_bullets, green, blue)
         press = pygame.key.get_pressed()
         draw_background(green, blue, green_bullets, blue_bullets, blue_health, green_health)
         green_move(press, green)
         blue_move(press, blue)
-
-        
-
-
-

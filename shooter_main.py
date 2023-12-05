@@ -2,7 +2,7 @@ import pygame
 from shooter_modules.settings import *
 import shooter_modules.game as game
 
-pygame.font.init()
+pygame.init()
 pygame.mixer.init()
 clock = pygame.time.Clock() #control the frame rate in 1 second
 

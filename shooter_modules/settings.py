@@ -15,7 +15,7 @@ BORDER = pygame.Rect(WIDTH//2 - 5, 0, 10, HEIGHT)
 
 HEALTH_FONT = pygame.font.Font('shooter_assets\ARCADE.TTF', 50)
 WINNER_FONT = pygame.font.Font('shooter_assets\ARCADECLASSIC.TTF', 150)
-title_font = pygame.font.Font('shooter_assets\ARCADECLASSIC.TTF', 200)
+title_font = pygame.font.Font("shooter_assets\ARCADECLASSIC.TTF", 200)
 
 BULLET_HIT_SOUND = pygame.mixer.Sound('shooter_assets\Assets_Grenade+1.mp3')
 BULLET_FIRE_SOUND = pygame.mixer.Sound('shooter_assets\Gun+Silencer.mp3')
