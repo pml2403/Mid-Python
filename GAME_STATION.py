@@ -151,7 +151,7 @@ def close_rule_window():
     close_button.place(rely = 1.5)
 
 image_frame = CTkFrame(window, 
-                       fg_color = 'white', 
+                       fg_color = 'black', 
                        width = 300, 
                        height = 400)
 close_button = CTkButton(image_frame,
