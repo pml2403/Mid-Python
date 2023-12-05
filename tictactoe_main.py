@@ -51,7 +51,7 @@ def play_sound():
     sound.play()
 
 def win_sound():
-    win_sound = pygame.mixer.Sound('tictactoe_assets/win_sound.mp3')
+    win_sound = pygame.mixer.Sound("tictactoe_assets/win_sound.mp3")
     win_sound.play()
 
 def tie_sound():
@@ -62,37 +62,44 @@ def check_winner():
     global winner
     global game_over
     for x in range(3):
-            #check rows
+        #check rows
         if markers[x][0] == markers[x][1] == markers[x][2] == 1:
             winner = 1
             game_over = True 
+            win_sound()
             return game_over
         if markers[x][0] == markers[x][1] == markers[x][2] == -1:
             winner = 2
             game_over = True
+            win_sound()
             return game_over
         #check columns
         if markers[0][x] == markers[1][x] == markers[2][x] == 1:
             winner = 1
             game_over = True
+            win_sound()
             return game_over
         if markers[0][x] == markers[1][x] == markers[2][x] == -1:
             winner = 2
             game_over = True
+            win_sound()
             return game_over
     #check cross
     if markers[0][0] == markers[1][1] == markers[2][2] == 1 or markers[0][2] == markers[1][1] == markers[2][0] == 1:
+        win_sound()
         winner = 1
         game_over = True
-        win_sound()
         return game_over
     if markers[0][0] == markers[1][1] == markers[2][2] == -1 or markers[0][2] == markers[1][1] == markers[2][0] == -1:
+        win_sound()
         winner = 2
         game_over = True
-        win_sound()
         return game_over
     #check tie
-    if markers[0][1] != 0 and markers[0][2] != 0 and markers[0][0] != 0 and markers[1][1] != 0 and markers[1][2] != 0 and markers[1][0] != 0 and markers[2][1] != 0 and markers[2][2] != 0 and markers[2][0] != 0  :
+    if markers[0][1] != 0 and markers[0][2] != 0 and markers[0][0] != 0 \
+          and markers[1][1] != 0 and markers[1][2] != 0 \
+            and markers[1][0] != 0 and markers[2][1] != 0 \
+                  and markers[2][2] != 0 and markers[2][0] != 0:
         game_over = True
         tie_sound()
         return game_over

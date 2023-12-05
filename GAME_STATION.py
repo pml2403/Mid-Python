@@ -7,6 +7,30 @@ window.geometry('500x650')
 window.title('GAME STATION')
 set_appearance_mode('dark')
 
+#functions
+def rules_appear():
+    if rules_frame.winfo_y() > 650:
+        rules_frame.place(relx = 0.5, rely = 0.42, anchor = CENTER)
+    else:
+        rules_frame.place(relx = 0.5, rely = 1.5)
+
+def close_rule_window():
+    image_frame.place(rely = 1.5)
+    close_button.place(rely = 1.5)
+
+def image_appear(number):
+    global image_frame
+    rule_image = Image.open(f"game_station_assets/Rule_{number}.png").resize((460, 600))
+    rule_image_tk = ImageTk.PhotoImage(rule_image)
+    rule_label = CTkLabel(image_frame, 
+                          image = rule_image_tk,
+                          text = '',
+                          corner_radius = 0)
+    rule_label.place(relx = 0.5, rely = 0.525, relwidth = 1, relheight = 0.95, anchor = CENTER)
+    
+    image_frame.place(relx = 0.5, rely = 0.6, anchor = CENTER)
+    close_button.place(relx = 1, rely = 0, anchor = NE)
+
 #import games
 def import_flappy():
     import flappybird_main
@@ -93,12 +117,6 @@ tictactoe_button = CTkButton(game_frame,
                             compound = TOP,
                             command = import_tictactoe)
 tictactoe_button.place(relx = 0.75, rely = 0.75, anchor = CENTER)
-
-def rules_appear():
-    if rules_frame.winfo_y() > 650:
-        rules_frame.place(relx = 0.5, rely = 0.42, anchor = CENTER)
-    else:
-        rules_frame.place(relx = 0.5, rely = 1.5)
     
 game_rules = CTkButton(window, 
                        text = 'How to play',
@@ -146,10 +164,6 @@ rule_tic = CTkButton(rules_frame,
 rule_tic.bind('<Button-1>', lambda event: image_appear(4))
 rule_tic.place(relx = 0.5, rely = 1, relwidth = 1, relheight = 0.25, anchor = S)
 
-def close_rule_window():
-    image_frame.place(rely = 1.5)
-    close_button.place(rely = 1.5)
-
 image_frame = CTkFrame(window, 
                        fg_color = 'black', 
                        width = 300, 
@@ -163,18 +177,5 @@ close_button = CTkButton(image_frame,
                          width = 24,
                          height = 24,
                          command = close_rule_window)
-
-def image_appear(number):
-    global image_frame
-    rule_image = Image.open(f"game_station_assets/Rule_{number}.png").resize((460, 600))
-    rule_image_tk = ImageTk.PhotoImage(rule_image)
-    rule_label = CTkLabel(image_frame, 
-                          image = rule_image_tk,
-                          text = '',
-                          corner_radius = 0)
-    rule_label.place(relx = 0.5, rely = 0.525, relwidth = 1, relheight = 0.95, anchor = CENTER)
-    
-    image_frame.place(relx = 0.5, rely = 0.6, anchor = CENTER)
-    close_button.place(relx = 1, rely = 0, anchor = NE)
 
 window.mainloop()
